@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage  xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IoT_Application.MainPage" >
+    <ContentPage x:Name="connectPage" 
+                 Title="Подключение" >
+        <ContentPage.Content>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="4*" />
+                </Grid.RowDefinitions>
+
+                <BoxView BackgroundColor="AntiqueWhite"  
+                         Grid.Row="0" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="4"
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill"  
+                         HeightRequest="1"/>
+
+                <Label Text="Выполните подключение к лампе:" 
+                       FontSize="Medium"  
+                       Grid.Column="0" 
+                       Grid.ColumnSpan="4" 
+                       Grid.Row="0" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" />
+
+                <Button Text="Подключение" 
+                        Grid.Row="1" 
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        HorizontalOptions="Center" 
+                        Margin="0, 10, 0, 10"
+                        Clicked="Button_Clicked" />
+            </Grid>
+        </ContentPage.Content>
+    </ContentPage>
+
+    <ContentPage x:Name="modesPage" 
+                 Title="Режимы">
+        <ContentPage.Content>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="10" />
+                </Grid.RowDefinitions>
+
+                <BoxView BackgroundColor="AntiqueWhite"  
+                         Grid.Row="0" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         Margin="0" 
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill"  
+                         HeightRequest="1"/>
+
+                <BoxView BackgroundColor="AntiqueWhite"
+                         CornerRadius="0"  
+                         Grid.Row="1" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         Margin="0, 0, 0, -10" 
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill"  
+                         HeightRequest="1" />
+
+                <BoxView BackgroundColor="AntiqueWhite" 
+                         Grid.Row="2" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         Margin="0, 0, 0, -10" 
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill"  
+                         HeightRequest="1"/>
+
+
+                <BoxView BackgroundColor="AntiqueWhite" 
+                         Grid.Row="3"
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         Margin="0, 0, 0, -10" 
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill"  
+                         HeightRequest="1" />
+
+                <Label Text="Настройте свечение лампы:" 
+                       FontSize="Medium"                      
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"
+                       Grid.Column="0" 
+                       Grid.ColumnSpan="3" 
+                       Grid.Row="0"  />
+
+                <Label Text="Эффект:" 
+                       Grid.Column="0"   
+                       Grid.Row="1" 
+                       Margin="0, 20, 0, 0"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Start"/>
+
+                <Switch x:Name="switcherOfOn" 
+                        Toggled="switcherOfOn_Toggled"
+                        IsToggled="True" 
+                        Grid.Column="0"   
+                        Grid.Row="1" 
+                        HorizontalOptions="Center"
+                        Margin="20, 0, 0, 10"
+                        VerticalOptions="End"/>
+
+                <Label Text="Яркость:" 
+                       Grid.Column="0"  
+                       Grid.Row="2" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"/>
+
+                <Label Text="Скорость:" 
+                       Grid.Column="0" 
+                       Grid.Row="3" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"/>
+
+                <Label Text="Масштаб:" 
+                       Grid.Column="0"  
+                       Grid.Row="4" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"/>
+
+                <Picker Grid.Column="1" 
+                        Grid.Row="1"  
+                        Grid.ColumnSpan="2"  
+                        x:Name="effectSwitcher" 
+                        Margin="0, 10, 0, 10">
+                    <Picker.Items>
+                        <x:String>0. Бeлый cвeт</x:String>
+                        <x:String>1. Цвeт</x:String>
+                        <x:String>2. Плавная смeнa цвeтa</x:String>
+                        <x:String>3. Хаос</x:String>
+                        <x:String>4. Oблaкa</x:String>
+                        <x:String>5. Лaвa</x:String>
+                        <x:String>6. Плaзмa</x:String>
+                        <x:String>7. Paдyгa объемная</x:String>
+                        <x:String>8. Пaвлин</x:String>
+                        <x:String>9. 3eбpa</x:String>
+                        <x:String>10. Лec</x:String>
+                        <x:String>11. Oкeaн</x:String>
+                        <x:String>12. Mячики</x:String>
+                        <x:String>13. Mячики бeз гpaниц</x:String>
+                        <x:String>14. Пoпкopн</x:String>
+                        <x:String>15. Cпиpaли</x:String>
+                        <x:String>16. Колыбель Ньютона</x:String>
+                        <x:String>17. Дымoвыe шaшки</x:String>
+                        <x:String>18. Спокойный oкeaн</x:String>
+                        <x:String>19. Teни</x:String>
+                        <x:String>20. ДHK-синусоиды</x:String>
+                        <x:String>21. Cтaя</x:String>
+                        <x:String>22. Cтaя с xищником</x:String>
+                        <x:String>23. Moтыльки</x:String>
+                        <x:String>24. Лaмпa c мoтылькaми</x:String>
+                        <x:String>25. 3мeйки</x:String>
+                        <x:String>26. Анимация из Nexus</x:String>
+                        <x:String>27. Шapы</x:String>
+                        <x:String>28. Cинycoид</x:String>
+                        <x:String>29. Кольцо</x:String>
+                        <x:String>30. Ceвepнoe cияниe</x:String>
+                        <x:String>31. Плaзмeннaя лaмпa</x:String>
+                        <x:String>32. Лaвoвaя лaмпa</x:String>
+                        <x:String>33. Жидкaя лaмпa</x:String>
+                        <x:String>34. Жидкaя лaмпa (auto)</x:String>
+                        <x:String>35. Kaпли нa cтeклe</x:String>
+                        <x:String>36. Maтpицa NEO</x:String>
+                        <x:String>37. Oгoнь 1</x:String>
+                        <x:String>38. Oгoнь 2</x:String>
+                        <x:String>39. Oгoнь 3</x:String>
+                        <x:String>40. Oгoнь 4</x:String>
+                        <x:String>41. Торнадо</x:String>
+                        <x:String>42. Paзнoцвeтныe виxpи</x:String>
+                        <x:String>43. Maгмa</x:String>
+                        <x:String>44. Kипeниe</x:String>
+                        <x:String>45. Boдoпaд</x:String>
+                        <x:String>46. Boдoпaд 2</x:String>
+                        <x:String>47. Бacceйн</x:String>
+                        <x:String>48. Пyльc</x:String>
+                        <x:String>49. Paдyжный пyльc</x:String>
+                        <x:String>50. Бeлый пyльc</x:String>
+                        <x:String>51. Ocциллятop</x:String>
+                        <x:String>52. Иcтoчник сияния</x:String>
+                        <x:String>53. Фeечка Winx</x:String>
+                        <x:String>54. Koмeтa</x:String>
+                        <x:String>55. Oднoцвeтнaя кoмeтa</x:String>
+                        <x:String>56. Двe кoмeты</x:String>
+                        <x:String>57. Тpи кoмeты</x:String>
+                        <x:String>58. Пpитяжeниe</x:String>
+                        <x:String>59. Пapящий oгoнь</x:String>
+                        <x:String>60. Bepxoвoй oгoнь</x:String>
+                        <x:String>61. Paдyжный змeй</x:String>
+                        <x:String>62. Koнфeтти</x:String>
+                        <x:String>63. Mepцaниe</x:String>
+                        <x:String>64. Дым</x:String>
+                        <x:String>65. Paзнoцвeтный дым</x:String>
+                        <x:String>66. Кубизм</x:String>
+                        <x:String>67. Кубизм 2</x:String>
+                        <x:String>68. Кубизм 3</x:String>
+                        <x:String>69. Boлны</x:String>
+                        <x:String>70. Цвeтныe дpaжe</x:String>
+                        <x:String>71. Koдoвый зaмoк</x:String>
+                        <x:String>72. Kyбик Pyбикa</x:String>
+                        <x:String>73. Tyчкa в бaнкe</x:String>
+                        <x:String>74. Гроза в банке</x:String>
+                        <x:String>75. Ocaдки</x:String>
+                        <x:String>76. Paзнoцвeтный дoждь</x:String>
+                        <x:String>77. Cнeгoпaд</x:String>
+                        <x:String>78. Meтeль</x:String>
+                        <x:String>79. Пpыгyны</x:String>
+                        <x:String>80. Cвeтлячки</x:String>
+                        <x:String>81. Cвeтлячки co шлeйфoм</x:String>
+                        <x:String>82. Пeйнтбoл</x:String>
+                        <x:String>83. Paдyгa</x:String>
+                        <x:String>84. Чacы</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+
+                <Slider x:Name="brightnessSlider" 
+                        ValueChanged="Slider_ValueChanged"
+                        Grid.Column="1" 
+                        Grid.Row="2" 
+                        Grid.ColumnSpan="2"
+                        VerticalOptions="CenterAndExpand" 
+                        Minimum="0" 
+                        Maximum="255" 
+                        Margin="20, 0, 80, 0" 
+                        MaximumTrackColor="DarkGray"/>
+
+                <Label  x:Name="brightnessValueText" Text="100"
+                        Grid.Column="1" 
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="End"  
+                        Margin="0, 0, 20, 0"/>
+
+                <Slider x:Name="speedSlider" 
+                        ValueChanged="Slider_ValueChanged"
+                        Grid.Column="1" 
+                        Grid.Row="3" 
+                        Grid.ColumnSpan="2"
+                        VerticalOptions="CenterAndExpand" 
+                        Minimum="0" 
+                        Maximum="255"
+                        Margin="20, 0, 80, 0" 
+                        MaximumTrackColor="DarkGray" />
+
+                <Label  x:Name="speedValueText" Text="100" 
+                        Grid.Column="1" 
+                        Grid.Row="3" 
+                        Grid.ColumnSpan="2"
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="End" 
+                        Margin="0, 0, 20, 0" />
+
+                <Slider x:Name="scaleSlider" Grid.Column="1"                        
+                        ValueChanged="Slider_ValueChanged"
+                        Grid.Row="4" 
+                        Grid.ColumnSpan="2"
+                        VerticalOptions="CenterAndExpand"
+                        Minimum="0" 
+                        Maximum="255"
+                        Margin="20, 0, 80, 0" 
+                        MaximumTrackColor="DarkGray" />
+
+                <Label  x:Name="scaleValueText" Text="100" 
+                        Grid.Column="1" 
+                        Grid.Row="4" 
+                        Grid.ColumnSpan="2"
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="End" 
+                        Margin="0, 0, 20, 0" />
+            </Grid>
+        </ContentPage.Content>
+    </ContentPage>
+
+    <ContentPage x:Name="alarmClockPage"
+                 Title="Будильники">
+        <ContentPage.Content>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="10*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="10" />
+                </Grid.RowDefinitions>
+
+                <BoxView BackgroundColor="AntiqueWhite"  
+                         Grid.Row="0" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill" 
+                         HeightRequest="1" />
+
+                <BoxView BackgroundColor="AntiqueWhite"                     
+                         Grid.Row="1" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         Margin="0, 0, 0, -5" 
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill"  
+                         HeightRequest="1" />
+
+                <BoxView BackgroundColor="AntiqueWhite"                     
+                         Grid.Row="2" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         Margin="0, 0, 0, -5" 
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill"  
+                         HeightRequest="1" />
+
+                <BoxView BackgroundColor="AntiqueWhite"                     
+                         Grid.Row="3" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         Margin="0, 0, 0, -5" 
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill"  
+                         HeightRequest="1" />
+
+                <BoxView BackgroundColor="AntiqueWhite"                     
+                         Grid.Row="4" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         Margin="0, 0, 0, -5" 
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill"  
+                         HeightRequest="1" />
+
+                <BoxView BackgroundColor="AntiqueWhite"                     
+                         Grid.Row="5" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         Margin="0, 0, 0, -5" 
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill"  
+                         HeightRequest="1" />
+
+                <BoxView BackgroundColor="AntiqueWhite"                     
+                         Grid.Row="6" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         Margin="0, 0, 0, -5" 
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill"  
+                         HeightRequest="1" />
+
+                <BoxView BackgroundColor="AntiqueWhite"                     
+                         Grid.Row="7" 
+                         Grid.Column="0" 
+                         Grid.ColumnSpan="3" 
+                         Margin="0, 0, 0, -5" 
+                         VerticalOptions="End" 
+                         HorizontalOptions="Fill"  
+                         HeightRequest="1" />
+
+                <Label Text="Настройте будильники-рассветы:" 
+                       Grid.Row="0" 
+                       Grid.Column="0" 
+                       HorizontalTextAlignment="Center" 
+                       FontSize="Medium" 
+                       VerticalTextAlignment="Center" 
+                       Grid.ColumnSpan ="3"/>
+
+                <Label Text="Пн:" 
+                       Grid.Row="1"
+                       Grid.Column="0" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Text="Вт:" 
+                       Grid.Row="2" 
+                       Grid.Column="0" 
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Text="Ср:" 
+                       Grid.Row="3" 
+                       Grid.Column="0"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+
+                <Label Text="Чт:" 
+                       Grid.Row="4" 
+                       Grid.Column="0" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center" />
+
+                <Label Text="Пт:" 
+                       Grid.Row="5" 
+                       Grid.Column="0" 
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Text="Сб:" 
+                       Grid.Row="6" 
+                       Grid.Column="0" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Text="Вс:" 
+                       Grid.Row="7" 
+                       Grid.Column="0" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"/>
+
+                <Switch x:Name="mondaySwitcher"   
+                        Toggled="Switcher_Toggled" 
+                        IsToggled="False" 
+                        Grid.Row="1"
+                        Grid.Column="1" 
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                <Switch x:Name="tuesdaySwitcher" 
+                        Toggled="Switcher_Toggled" 
+                        IsToggled="False" 
+                        Grid.Row="2" Grid.Column="1"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center"/>
+
+                <Switch x:Name="wednesdaySwitcher" 
+                        Toggled="Switcher_Toggled" 
+                        IsToggled="False" 
+                        Grid.Row="3" Grid.Column="1"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+
+                <Switch x:Name="thursdaySwitcher"
+                        Toggled="Switcher_Toggled" 
+                        IsToggled="False" 
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center"/>
+
+                <Switch x:Name="fridaySwitcher"   
+                        Toggled="Switcher_Toggled"
+                        IsToggled="False" 
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+
+                <Switch x:Name="saturdaySwitcher" 
+                        Toggled="Switcher_Toggled" 
+                        IsToggled="False" 
+                        Grid.Row="6" 
+                        Grid.Column="1"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+
+                <Switch x:Name="sundaySwitcher"
+                        Toggled="Switcher_Toggled"
+                        IsToggled="False" 
+                        Grid.Row="7" 
+                        Grid.Column="1" 
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"/>
+
+                <TimePicker x:Name="mondayTime" 
+                            Format="HH:mm"  
+                            Grid.Row="1" 
+                            Grid.Column="2" 
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            IsEnabled="False"
+                            PropertyChanged="timeAlarm_PropertyChanged"/>
+
+                <TimePicker x:Name="tuesdayTime" 
+                            Format="HH:mm" 
+                            Grid.Row="2"
+                            Grid.Column="2" 
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            IsEnabled="False"
+                            PropertyChanged="timeAlarm_PropertyChanged"/>
+
+                <TimePicker x:Name="wednesdayTime" 
+                            Format="HH:mm" 
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center"
+                            IsEnabled="False"
+                            PropertyChanged="timeAlarm_PropertyChanged"/>
+
+                <TimePicker x:Name="thursdayTime"
+                            Format="HH:mm" 
+                            Grid.Row="4" 
+                            Grid.Column="2"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            IsEnabled="False"
+                            PropertyChanged="timeAlarm_PropertyChanged"/>
+
+                <TimePicker x:Name="fridayTime"
+                            Format="HH:mm" 
+                            Grid.Row="5" 
+                            Grid.Column="2"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            IsEnabled="False"
+                            PropertyChanged="timeAlarm_PropertyChanged"/>
+
+                <TimePicker x:Name="saturdayTime" 
+                            Format="HH:mm" 
+                            Grid.Row="6"
+                            Grid.Column="2" 
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" 
+                            IsEnabled="False" 
+                            PropertyChanged="timeAlarm_PropertyChanged"/>
+
+                <TimePicker x:Name="sundayTime"
+                            Format="HH:mm" 
+                            Grid.Row="7" 
+                            Grid.Column="2"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center" 
+                            IsEnabled="False" 
+                            PropertyChanged="timeAlarm_PropertyChanged"/>
+
+                <Label Text="Рассвет начинается за" 
+                       Grid.Row="8" 
+                       Grid.Column="0" 
+                       Grid.ColumnSpan="2" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Text="минут"  
+                       Grid.Row="8" 
+                       Grid.Column="2" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="End" 
+                       Margin="0, 0, 40, 0" />
+
+                <Picker  Grid.Row="8" 
+                         Grid.Column="2" 
+                         WidthRequest="70" 
+                         Margin="0, 5, 0, 5"
+                         HorizontalOptions="Center"
+                         x:Name="sunriseTimePicker" 
+                         SelectedIndexChanged="sunriseTimePicker_SelectedIndexChanged">
+                    <Picker.Items>
+                        <x:String>5</x:String>
+                        <x:String>10</x:String>
+                        <x:String>15</x:String>
+                        <x:String>20</x:String>
+                        <x:String>25</x:String>
+                        <x:String>30</x:String>
+                        <x:String>40</x:String>
+                        <x:String>50</x:String>
+                        <x:String>60</x:String>
+                    </Picker.Items>
+                    <Picker.SelectedItem>1</Picker.SelectedItem>
+                </Picker>
+            </Grid>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>

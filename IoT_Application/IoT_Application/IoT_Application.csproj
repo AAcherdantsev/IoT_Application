@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="resourses\icoAlarmClock.png" />
+    <None Remove="resourses\icoLamp.png" />
+    <None Remove="resourses\IcoSwitcher.png" />
+    <None Remove="resourses\icoWifi.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="resourses\icoAlarmClock.png" />
+    <EmbeddedResource Include="resourses\icoLamp.png" />
+    <EmbeddedResource Include="resourses\IcoSwitcher.png" />
+    <EmbeddedResource Include="resourses\icoWifi.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+</Project>
